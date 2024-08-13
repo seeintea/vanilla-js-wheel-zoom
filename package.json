@@ -38,5 +38,8 @@
     "bugs": {
         "url": "https://github.com/seeintea/vanilla-js-wheel-zoom"
     },
-    "homepage": "https://github.com/seeintea/vanilla-js-wheel-zoom"
+    "homepage": "https://github.com/seeintea/vanilla-js-wheel-zoom",
+    "publishConfig": {
+        "access": "public"
+    }
 }
