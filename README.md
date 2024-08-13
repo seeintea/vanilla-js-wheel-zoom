@@ -1,5 +1,10 @@
 # vanilla-js-wheel-zoom
 
+
+⚠️ <span style="color: red;">THIS IS A CUSTOM VERSION<span>
+
+Bind the observer of drag and scale to the parent node, if you want to use it, check the example first.
+
 Image resizing using mouse wheel (pinch to zoom) + drag scrollable image (as well as any HTML content)
 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/worka/vanilla-js-wheel-zoom)

@@ -636,6 +636,8 @@
         // ******************** //
         // drag scrollable content
         dragScrollable: true,
+        // default margins
+        dragMargin: 50,
     };
 
     /**
@@ -1227,7 +1229,7 @@
             this._destroyObservers();
             if (options.dragScrollable === true) {
                 var dragScrollableObserver = new DragScrollableObserver(
-                    content.$element
+                    viewport.$element
                 );
                 observers.push(dragScrollableObserver);
                 if (typeof options.onGrab === 'function') {
@@ -1251,15 +1253,14 @@
                     var contentNewTop = content.currentTop + y;
                     var maxAvailableLeft =
                         (content.currentWidth - viewport.originalWidth) / 2 +
-                        content.correctX;
+                        viewport.originalWidth -
+                        options.dragMargin;
                     var maxAvailableTop =
                         (content.currentHeight - viewport.originalHeight) / 2 +
-                        content.correctY;
-
-                    // if we do not go beyond the permissible boundaries of the viewport
+                        viewport.originalHeight -
+                        options.dragMargin;
                     if (Math.abs(contentNewLeft) <= maxAvailableLeft)
                         content.currentLeft = contentNewLeft;
-                    // if we do not go beyond the permissible boundaries of the viewport
                     if (Math.abs(contentNewTop) <= maxAvailableTop)
                         content.currentTop = contentNewTop;
                     _this._transform(options.smoothTimeDrag);
@@ -1268,7 +1269,9 @@
                     }
                 });
             }
-            var interactionObserver = new InteractionObserver(content.$element);
+            var interactionObserver = new InteractionObserver(
+                viewport.$element
+            );
             observers.push(interactionObserver);
             if (!options.disableWheelZoom) {
                 if (this.isTouch) {

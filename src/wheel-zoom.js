@@ -88,7 +88,7 @@ WZoom.prototype = {
         this._destroyObservers();
 
         if (options.dragScrollable === true) {
-            const dragScrollableObserver = new DragScrollableObserver(content.$element);
+            const dragScrollableObserver = new DragScrollableObserver(viewport.$element);
             observers.push(dragScrollableObserver);
 
             if (typeof options.onGrab === 'function') {
@@ -115,12 +115,10 @@ WZoom.prototype = {
                 const contentNewLeft = content.currentLeft + x;
                 const contentNewTop = content.currentTop + y;
 
-                let maxAvailableLeft = (content.currentWidth - viewport.originalWidth) / 2 + content.correctX;
-                let maxAvailableTop = (content.currentHeight - viewport.originalHeight) / 2 + content.correctY;
+                let maxAvailableLeft =  (content.currentWidth - viewport.originalWidth) / 2 + viewport.originalWidth - options.dragMargin;
+                let maxAvailableTop =  (content.currentHeight - viewport.originalHeight) / 2 + viewport.originalHeight - options.dragMargin;
 
-                // if we do not go beyond the permissible boundaries of the viewport
                 if (Math.abs(contentNewLeft) <= maxAvailableLeft) content.currentLeft = contentNewLeft;
-                // if we do not go beyond the permissible boundaries of the viewport
                 if (Math.abs(contentNewTop) <= maxAvailableTop) content.currentTop = contentNewTop;
 
                 this._transform(options.smoothTimeDrag);
@@ -131,7 +129,7 @@ WZoom.prototype = {
             });
         }
 
-        const interactionObserver = new InteractionObserver(content.$element);
+        const interactionObserver = new InteractionObserver(viewport.$element);
         observers.push(interactionObserver);
 
         if (!options.disableWheelZoom) {

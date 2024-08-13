@@ -1,5 +1,5 @@
 {
-    "name": "vanilla-js-wheel-zoom",
+    "name": "@seeintea/vanilla-js-wheel-zoom",
     "version": "9.0.3",
     "main": "src/wheel-zoom.js",
     "devDependencies": {
@@ -19,7 +19,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/worka/vanilla-js-wheel-zoom.git"
+        "url": "git+https://github.com/seeintea/vanilla-js-wheel-zoom"
     },
     "keywords": [
         "wheelzoom",
@@ -36,7 +36,7 @@
     "author": "worka",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/worka/vanilla-js-wheel-zoom/issues"
+        "url": "https://github.com/seeintea/vanilla-js-wheel-zoom"
     },
-    "homepage": "https://github.com/worka/vanilla-js-wheel-zoom"
+    "homepage": "https://github.com/seeintea/vanilla-js-wheel-zoom"
 }

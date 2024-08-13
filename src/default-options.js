@@ -27,6 +27,8 @@ export const wZoomDefaultOptions = {
     // ******************** //
     // drag scrollable content
     dragScrollable: true,
+    // default margins
+    dragMargin: 50
 };
 
 /**
